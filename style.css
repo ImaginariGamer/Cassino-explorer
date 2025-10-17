@@ -1,0 +1,123 @@
+/* Fonte Google Fonts */
+body {
+    font-family: 'Montserrat', sans-serif;
+    /* NOVO: Fundo Gradiente Animado */
+    background: linear-gradient(-45deg, #1f0840, #3a0e6e, #5a198c, #8b2bba);
+    background-size: 400% 400%;
+    animation: gradient-animation 15s ease infinite;
+    color: #e0e0e0;
+    padding-bottom: 70px;
+}
+
+@keyframes gradient-animation {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+/* Restante do CSS do BODY e TIPOGRAFIA (MANTIDO) */
+.display-6, .fw-bold {
+    font-family: 'Bangers', cursive;
+}
+.fixed-bottom { z-index: 1000; }
+.text-jackpot { /* ... animação jackpot-flash ... */ }
+
+/* NOVO: Interatividade dos Botões */
+.btn-lg {
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+.btn-lg:hover {
+    transform: scale(1.05); /* Crescimento ao passar o mouse */
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.5); /* Brilho */
+}
+
+/* -------------------------------------------------- */
+/* ESTILO DO CAÇA-NÍQUEIS AVANÇADO (AGORA REALÍSTICO) */
+/* -------------------------------------------------- */
+
+.slot-container {
+    background: #111;
+    border: 8px solid #ffd700; /* Dourado */
+    border-radius: 15px;
+    padding: 15px 5px; /* Mais espaço */
+    box-shadow: 0 0 30px rgba(255, 215, 0, 0.5); /* Brilho de máquina */
+}
+
+.slot-reel {
+    /* ... (Mantido) */
+    font-size: 3em;
+    height: 90px;
+    line-height: 90px;
+    margin: 0 8px;
+    background-color: #000;
+    border: 2px solid #3c3c3c;
+    /* NOVO: Simula o visor do rolo */
+    perspective: 100px;
+    transform-style: preserve-3d; 
+}
+
+/* CLASSE DE GIRO: Animação de Rotação 3D */
+.slot-reel.spinning {
+    color: transparent; 
+    /* Rotação rápida no eixo X para efeito 3D de rolo */
+    animation: slot-roll 0.1s infinite linear, text-blur 0.1s infinite linear;
+    text-shadow: none;
+}
+
+@keyframes slot-roll {
+    0% { transform: rotateX(0deg); }
+    100% { transform: rotateX(360deg); }
+}
+
+@keyframes text-blur {
+    0% { filter: blur(0px); }
+    50% { filter: blur(3px); }
+    100% { filter: blur(0px); }
+}
+
+/* -------------------------------------------------- */
+/* NOVO: ESTILO DO PANDA (JACKPOT) */
+/* -------------------------------------------------- */
+
+#panda-area {
+    min-height: 100px;
+    display: none; /* Escondido por padrão */
+    animation: panda-enter 0.5s ease-out forwards;
+    position: relative;
+    overflow: hidden;
+}
+
+@keyframes panda-enter {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+#panda-simbolo {
+    font-size: 4em;
+    margin-right: 20px;
+    display: inline-block;
+    animation: panda-wave 1s infinite alternate;
+}
+
+@keyframes panda-wave {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(5deg); }
+}
+
+#panda-carta {
+    font-size: 2em;
+    color: #ff0077;
+    position: absolute;
+    right: 20%;
+    bottom: 5px;
+    animation: carta-drop 1.5s ease-out forwards;
+    opacity: 0;
+}
+
+@keyframes carta-drop {
+    0% { opacity: 0; transform: translateY(-50px) rotate(0deg); }
+    50% { opacity: 1; transform: translateY(0) rotate(20deg); }
+    100% { opacity: 1; transform: translateY(0) rotate(10deg); }
+}
+
+/* O resto do CSS original do projeto deve ser mantido */

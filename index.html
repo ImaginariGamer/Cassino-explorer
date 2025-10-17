@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aventura dos Exploradores | Cassino Virtual</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Bangers&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <header class="sticky-top bg-dark border-bottom border-warning shadow-lg p-3">
+        <div class="container-fluid d-flex justify-content-between align-items-center">
+            
+            <h1 class="text-warning display-6 me-3" style="font-family: 'Bangers', cursive;">CASSINO EXPLORER</h1>
+            
+            <div id="perfil-area" class="d-flex align-items-center bg-secondary p-2 rounded">
+                <div class="text-start me-3">
+                    <p class="mb-0 text-light small">Bem-vindo(a), <span id="user-name" class="fw-bold text-info">Explorador</span></p>
+                    <p class="mb-0 text-light small">ID: <span id="user-id" class="text-warning">#xxxxxx</span></p>
+                </div>
+                <div class="text-end">
+                    <p class="mb-0 text-light fw-bold">Cash: <span id="saldo-virtual" class="text-success fs-5">100</span> 💎</p>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="container my-4">
+        
+        <section id="missoes" class="p-3 mb-4 bg-dark rounded shadow-lg border-start border-danger border-5">
+            <h2 class="text-danger fw-bold mb-3">🔥 Desafio do Dia: Caça-Níqueis!</h2>
+            <p id="missoes-mensagem" class="text-light">Jogue 5x no Caça-Níqueis para ganhar 50 Cash!</p>
+        </section>
+        
+        <div id="panda-area" class="bg-info p-3 mb-4 rounded d-flex justify-content-center align-items-center shadow-lg">
+            <span id="panda-simbolo">🐼</span>
+            <h3 class="text-dark fw-bold mb-0 me-3">PANDA DA SORTE!</h3>
+            <span id="panda-carta">🎁</span>
+        </div>
+
+        <h2 class="text-warning mb-3 fw-bold text-center" style="font-family: 'Bangers', cursive;">Escolha o Seu Jogo</h2>
+        
+        <ul class="nav nav-pills nav-fill mb-3 bg-dark p-2 rounded" id="pills-tab" role="tablist">
+            <li class="nav-item" role="presentation">
+                <button class="nav-link active" id="pills-slot-tab" data-bs-toggle="pill" data-bs-target="#pills-slot" type="button" role="tab">1. Caça-Níqueis (10 Cash)</button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link" id="pills-bau-tab" data-bs-toggle="pill" data-bs-target="#pills-bau" type="button" role="tab">2. Abertura do Baú (5 Cash)</button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link" id="pills-dado-tab" data-bs-toggle="pill" data-bs-target="#pills-dado" type="button" role="tab">3. Dado do Destino (2 Cash)</button>
+            </li>
+        </ul>
+        
+        <div class="tab-content" id="pills-tabContent">
+            
+            <div class="tab-pane fade show active" id="pills-slot" role="tabpanel">
+                <div class="card bg-dark text-center shadow-lg border-info">
+                    <div class="card-body p-4">
+                        <p class="text-info fw-bold mb-3">Três Rolos, Dez Combinações.</p>
+                        <div id="slot-machine" class="d-flex justify-content-center mb-4 slot-container">
+                            <span id="slot-r1" class="slot-reel">?</span>
+                            <span id="slot-r2" class="slot-reel">?</span>
+                            <span id="slot-r3" class="slot-reel">?</span>
+                        </div>
+                        <button id="btn-slot-machine" class="btn btn-warning btn-lg fw-bold" data-custo="10">GIRAR (10 CASH)!</button>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="tab-pane fade" id="pills-bau" role="tabpanel">
+                <div class="card bg-dark text-center shadow-lg border-danger">
+                    <div class="card-body p-4">
+                        <p class="text-danger fw-bold mb-3">Risco Médio, Recompensa Fixa (50/50).</p>
+                        <h3 id="bau-simbolo" class="display-1 mb-4 text-warning">📦</h3>
+                        <button id="btn-abrir-bau" class="btn btn-danger btn-lg fw-bold" data-custo="5">ABRIR O BAÚ SECRETO (5 CASH)!</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="tab-pane fade" id="pills-dado" role="tabpanel">
+                <div class="card bg-dark text-center shadow-lg border-success">
+                    <div class="card-body p-4">
+                        <p class="text-success fw-bold mb-3">Lance o Dado, Ganhe no 4 ou mais.</p>
+                        <div id="dado-area" class="mb-4">
+                            <svg id="mesa-feltro" viewBox="0 0 100 50" class="svg-mesa">
+                                <rect width="100" height="50" fill="#2e8b57"/>
+                                <circle cx="50" cy="25" r="15" fill="#1e5e3a" stroke="#ffd700" stroke-width="1"/>
+                                <text x="50" y="27" text-anchor="middle" alignment-baseline="middle" font-size="12" fill="#ffd700" class="dado-simbolo-svg">
+                                    ?
+                                </text>
+                            </svg>
+                            <h3 id="dado-simbolo" class="display-1 mt-3 text-warning dado-simbolo-h3">?</h3>
+                        </div>
+                        <button id="btn-lancar-dado" class="btn btn-success btn-lg fw-bold" data-custo="2">LANÇAR DADO (2 CASH)!</button>
+                    </div>
+                </div>
+            </div>
+
+        </div> <div class="fixed-bottom bg-dark p-3 border-top border-info shadow-lg d-flex justify-content-between align-items-center">
+            <p id="mensagem-resultado" class="text-light mb-0 me-3 fw-bold">Selecione uma aventura para começar.</p>
+            <button id="btn-recarregar" class="btn btn-info btn-sm fw-bold">
+                Recarga Grátis! (<span id="timer-recarregar">Pronta!</span>)
+            </button>
+        </div>
+
+    </main>
+    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
